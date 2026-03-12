@@ -1,0 +1,149 @@
+Practical: Database Communication (SQLite)
+Activity_main.xml file
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter your Name here" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Enter your Password here" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login" />
+
+    <Button
+        android:id="@+id/drop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Drop" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register" />
+
+</LinearLayout>
+MainActivity.java
+Java
+package com.example.db21;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.*;
+import androidx.appcompat.app.AppCompatActivity;
+
+class MyDB extends SQLiteOpenHelper {
+    MyDB(Context c) {
+        super(c, "logindb", null, 1);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String str = "create table login(username text, password text);";
+        db.execSQL(str);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        String str = "drop table if exists login;";
+        db.execSQL(str);
+        onCreate(db);
+    }
+}
+
+public class MainActivity extends AppCompatActivity {
+    MyDB mdb;
+    EditText eusername, epassword;
+    Button blogin, bdrop, bregister;
+    SQLiteDatabase db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        eusername = (EditText) findViewById(R.id.username);
+        epassword = (EditText) findViewById(R.id.password);
+        blogin = (Button) findViewById(R.id.login);
+        bdrop = (Button) findViewById(R.id.drop);
+        bregister = (Button) findViewById(R.id.register);
+        mdb = new MyDB(this);
+    }
+
+    public void login_fun(View v) {
+        String un = String.valueOf(eusername.getText());
+        String pass = String.valueOf(epassword.getText());
+        db = mdb.getReadableDatabase();
+        String q = "select * from login where username='" + un + "' and password='" + pass + "';";
+        try {
+            Cursor c = db.rawQuery(q, null);
+            if (c.getCount() == 0) {
+                Toast.makeText(this, "Username or Password wrong or User doesn't exists", Toast.LENGTH_LONG).show();
+            } else {
+                while (c.moveToNext()) {
+                    String uname = c.getString(0);
+                    String passw = c.getString(1);
+                    Toast.makeText(this, "Username: " + uname + "\nPassword: " + passw, Toast.LENGTH_LONG).show();
+                    if (un.contentEquals(uname) && pass.contentEquals(passw)) {
+                        Toast.makeText(this, "Welcome User: " + un, Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+            c.close();
+        } catch (Exception sqle) {
+            sqle.printStackTrace();
+        }
+    }
+
+    public void register_fun(View v) {
+        String un = String.valueOf(eusername.getText());
+        String pass = String.valueOf(epassword.getText());
+        db = mdb.getWritableDatabase();
+        String q = "insert into login values('" + un + "','" + pass + "');";
+        db.execSQL(q);
+        Toast.makeText(getApplicationContext(), "User Registered", Toast.LENGTH_SHORT).show();
+    }
+
+    public void drop_fun(View v) {
+        db = mdb.getWritableDatabase();
+        mdb.onUpgrade(db, 1, 2);
+        Toast.makeText(getApplicationContext(), "All User Deleted", Toast.LENGTH_SHORT).show();
+    }
+}

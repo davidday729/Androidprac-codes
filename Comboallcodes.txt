@@ -1,0 +1,1624 @@
+Practical no 1 HELLO WORLD
+
+Mainactivity.java
+
+Java
+package com.example.helloworld;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity
+{
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+mainactivity.xml
+
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayoutwidget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello World!"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayoutwidget.ConstraintLayout>
+
+
+
+PRACTICAL NO. 02 RESOURCES IN ANDROIDColor Resource 
+:colors.xml as follow$\rightarrow$XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#0000FF</color>
+    <color name="green">#00FF00</color>
+</resources>
+Activity_Main.xml$\rightarrow$XML<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/green"
+    tools:context=".MainActivity">
+
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="30dp"
+    android:text="This is blue color"
+    android:textColor="@color/blue"/>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="This is red color!"
+    android:textSize="30dp"
+    android:textColor="@color/red"
+    />
+</LinearLayout>
+
+Dimension Resource:dimens.xml $\rightarrow$XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="height">35dp</dimen>
+    <dimen name="width">150dp</dimen>
+    <dimen name="size">20dp</dimen>
+</resources>
+Activity_Main.xml$\rightarrow$XML<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="this is normal text"/>
+
+<TextView
+    android:layout_width="@dimen/width"
+    android:layout_height="@dimen/height"
+    android:textSize="@dimen/size"
+    android:text="this is text with user defined dimentions"/>
+
+</LinearLayout>
+Drawable Resource:Activity_Main.xml $\rightarrow$XML<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/Untitled"/>
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/Untitled1"/>
+
+</LinearLayout>
+Style Resource:To open style.xml file right click app$\rightarrow$res$\rightarrow$values$\rightarrow$style.xmlStyle.xml$\rightarrow$XML<resources>
+    <style name="MyTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:background">@color/blue</item>
+    </style>
+</resources>
+Manifest.xml$\rightarrow$To open manifest file app$\rightarrow$manifest$\rightarrow$manifest.xmlXML<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.anu.resourcesdemo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/MyTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+
+
+String Resources:strings.xml $\rightarrow$XML
+
+<resources>
+    <string name="app_name">ResourcesDemo</string>
+    <string name="Heading">Android Programming</string>
+    <string name="History">
+        The history and versions of android are interesting to know. The code names of androidranges
+        from A to J currently, such as Aestro, Blender, Cupcake, Donut, Eclair, Froyo,Gingerbread,
+        Honeycomb, Ice Cream Sandwich, Jelly Bean, Kitkat and Lollipop.
+        Let’s understand the android history in a sequence.
+        Initially, Andy Rubin founded Android Incorporation in Palo Alto,
+        California, United States in October, 2003.In 17th August 2005,
+        Google acquired android incorporation. Since then,
+        it is in the subsidiary of Google Incorporation.
+    </string>
+</resources>
+Activity_Main.xml$\rightarrow$XML<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="30dp"
+    android:text="@string/Heading"
+    android:textColor="@color/red"/>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/History"
+    android:textSize="20dp"
+    android:textColor="@color/blue"
+    />
+</LinearLayout>
+
+
+Practical no. 3: Activity Lifecycle
+
+
+How to add life cycle
+(Cursor should always be before closing of class and after closing of override method)
+
+Right click -> generate -> override method -> add respective life cycle
+OR
+
+Press Ctrl+ O to add respected method
+
+MainActivity.Java
+
+Java
+
+package com.example.activitylc;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+
+public class MainActivity extends AppCompatActivity {
+    String tag="lifecycle";
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Log.d(tag,"This is onCreate method");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(tag,"This is onStart method");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(tag,"This is onStop method");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(tag,"This is onDestroy method");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(tag,"This is onPause method");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(tag,"This is onResume method");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(tag,"This is onRestart method");
+    }
+}
+Run the emulator once the Hello World output is shown in logcat search bar write “lifecycle”.
+
+Close the app using back button then again open the app in mobile.
+
+
+
+Practical no 4 Fragment LifeCycleHow to add fragments:Right click app (Project panel) -> new -> fragment -> blank fragment -> assign name -> uncheck $2^{nd}$ (Factory method) & $3^{rd}$ (callback) checkbox -> finishFragment.java:Java
+
+
+package com.example.activitylc;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class BlankFragmentLC40 extends Fragment {
+    String tag = "lifecycle";
+
+    public BlankFragmentLC40() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        Log.d(tag, "This is onCreateView method");
+        return inflater.inflate(R.layout.fragment_blank_fragment_lc40, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(tag, "This is onStart method");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(tag, "This is onResume method");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(tag, "This is onPause method");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(tag, "This is onStop method");
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.d(tag, "This is onAttach method");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d(tag, "This is onDetach method");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(tag, "This is onDestroy method");
+    }
+}
+Fragment.xmlXML<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink"
+    tools:context=".BlankFragmentLC40">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
+        android:text="@string/hello_blank_fragment" />
+
+</FrameLayout>
+Activity.xmlXML<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+    <fragment
+        android:id="@+id/f1"
+        class="com.example.activitylc.BlankFragmentLC40"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_blank_fragment_lc40"
+        />
+
+</LinearLayout>
+
+
+Practical no. 5 & practical 6: UI components & types of layout
+1. Constraint Layout:
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayoutwidget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/no1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NO.1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.248" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="163dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NO2"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="246dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="228dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ANS"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="320dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="309dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="111dp"
+        tools:layout_editor_absoluteY="449dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="111dp"
+        tools:layout_editor_absoluteY="383dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="226dp"
+        tools:layout_editor_absoluteY="383dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_editor_absoluteY="449dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="523dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_editor_absoluteY="523dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CheckBox"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="579dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CheckBox"
+        tools:layout_editor_absoluteX="226dp"
+        tools:layout_editor_absoluteY="579dp" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="642dp" />
+
+</androidx.constraintlayoutwidget.ConstraintLayout>
+2. Linear Layout:
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/no1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO.1" />
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="enter no 1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO2" />
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="enter no 2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ANS" />
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="see ans here" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sub" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mul" />
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="div" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male" />
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Music" />
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sports" />
+    </LinearLayout>
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ok" />
+
+</LinearLayout>
+3. Table Layout:
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/no1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO.1" />
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="enter no 1" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO2" />
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="enter no 2" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ANS" />
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="see ans here" />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sub" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mul" />
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="div" />
+    </TableRow>
+
+    <TableRow>
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male" />
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+    </TableRow>
+
+    <TableRow>
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Music" />
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sports" />
+    </TableRow>
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ok" />
+
+</TableLayout>
+4. Grid Layout:
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:rowCount="7"
+    android:columnCount="2"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/no1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NO.1" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="enter no 1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NO2" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="enter no 2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ANS" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="see ans here" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sub" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="mul" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="div" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Female" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Music" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sports" />
+     
+     <ToggleButton
+            android:id="@+id/toggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ok" />
+
+</GridLayout>
+Event Handling:
+package com.example.uicomponents40;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.*;
+
+public class MainActivity extends AppCompatActivity {
+EditText e1,e2,e3;
+Button b1,b2,b3,b4;
+RadioButton r1,r2;
+CheckBox c1,c2;
+ToggleButton t1;
+
+@Override
+**protected void** onCreate(Bundle savedInstanceState) {
+    **super**.onCreate(savedInstanceState);
+    setContentView(R.layout.**activity_main**);
+    
+    e1=(EditText) findViewById(R.id.**editText**);
+    e2=(EditText) findViewById(R.id.**editText2**);
+    e3=(EditText) findViewById(R.id.**editText3**);
+    
+    b1=(Button) findViewById(R.id.**button**);
+    b2=(Button) findViewById(R.id.**button2**);
+    b3=(Button) findViewById(R.id.**button3**);
+    b4=(Button) findViewById(R.id.**button4**);
+    
+    r1=(RadioButton) findViewById(R.id.**radioButton**);
+    r2=(RadioButton) findViewById(R.id.**radioButton2**);
+    
+    c1=(CheckBox) findViewById(R.id.**checkBox**);
+    c2=(CheckBox) findViewById(R.id.**checkBox2**);
+    
+    t1=(ToggleButton) findViewById(R.id.**toggleButton**);
+
+    b1.setOnClickListener(**new** View.OnClickListener() {
+        @Override
+        **public void** onClick(View view) {
+            Toast.*makeText*(getApplicationContext(), "**this is add button**", Toast.LENGTH_LONG).show();
+        }
+    });
+
+    r1.setOnCheckedChangeListener(**new** CompoundButton.OnCheckedChangeListener() {
+        @Override
+        **public void** onCheckedChanged(CompoundButton compoundButton, **boolean** b) {
+            Toast.*makeText*(getApplicationContext(), "**Male selected**", Toast.LENGTH_LONG).show();
+        }
+    });
+
+    r2.setOnCheckedChangeListener(**new** CompoundButton.OnCheckedChangeListener() {
+        @Override
+        **public void** onCheckedChanged(CompoundButton compoundButton, **boolean** b) {
+            Toast.*makeText*(getApplicationContext(), "**FeMale selected**", Toast.LENGTH_LONG).show();
+        }
+    });
+
+    c1.setOnClickListener(**new** View.OnClickListener() {
+        @Override
+        **public void** onClick(View view) {
+            Toast.*makeText*(getApplicationContext(), "**this is music checkbox**", Toast.LENGTH_LONG).show();
+        }
+    });
+
+    c2.setOnClickListener(**new** View.OnClickListener() {
+        @Override
+        **public void** onClick(View view) {
+            Toast.*makeText*(getApplicationContext(), "**this is sports checkbox**", Toast.LENGTH_LONG).show();
+        }
+    });
+
+    b1.setOnClickListener(**new** View.OnClickListener() {
+        @Override
+        **public void** onClick(View view) {
+            **int** n1,n2,a;
+            n1=Integer.*parseInt*(**e1**.getText().toString());
+            n2=Integer.*parseInt*(**e2**.getText().toString());
+            a=n1+n2;
+            **e3**.setText("**sum= **" +a);
+        }
+    });
+
+    b2.setOnClickListener(**new** View.OnClickListener() {
+        @Override
+        **public void** onClick(View view) {
+            **int** n1,n2,a;
+            n1=Integer.*parseInt*(**e1**.getText().toString());
+            n2=Integer.*parseInt*(**e2**.getText().toString());
+            a=n1-n2;
+            **e3**.setText("**sub= **" +a);
+        }
+    });
+}
+}
+
+
+Practical : List View Demo with Event Handling
+
+Activitymain.xml
+
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ListView
+        android:id="@+id/lv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+
+</LinearLayout>
+Activitymain.java
+
+Java
+package com.example.listview40;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    ListView lv;
+    String[] c={"red","black","blue"};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        lv=(ListView) findViewById(R.id.lv1);
+        ArrayAdapter<String> a=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,c);
+        lv.setAdapter(a);
+        lv.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        TextView tv=(TextView )view;
+        if(i==0)
+        {
+            tv.setBackgroundColor(Color.RED);
+        }
+        if(i==1)
+        {
+            tv.setBackgroundColor(Color.BLACK);
+        }
+        if(i==2)
+        {
+            tv.setBackgroundColor(Color.BLUE);
+        }
+    }
+}
+
+
+
+
+Practicle : MenuBar
+Menu file
+
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_red"
+        android:title="Red"
+        android:orderInCategory="1"
+        android:showAsAction="never" />
+    <item
+        android:id="@+id/action_green"
+        android:title="Green"
+        android:orderInCategory="2"
+        android:showAsAction="never" />
+    <item
+        android:id="@+id/action_blue"
+        android:id="@+id/action_blue"
+        android:title="Blue"
+        android:orderInCategory="3"
+        android:showAsAction="never" />
+</menu>
+XML file
+
+XML
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+Java file
+
+Java
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.*;
+import android.widget.*;
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.*;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mymenu, menu);
+        return true; }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        TextView tv = (TextView) findViewById(R.id.textView);
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_red) {
+            tv.setBackgroundColor(Color.RED);
+            return true;
+        } else if (itemId == R.id.action_green) {
+            tv.setBackgroundColor(Color.GREEN);
+            return true;
+        } else if (itemId == R.id.action_blue) {
+            tv.setBackgroundColor(Color.BLUE);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+
+Activity to activity communication
+
+
+Activitymain.xml
+
+
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to second activity"/>
+
+</LinearLayout>
+Activity2main.xml
+
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayoutwidget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".Main2Activity">
+
+</androidx.constraintlayoutwidget.ConstraintLayout>
+Activitymain.java
+
+Java
+package com.example.listview40;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+    Button btn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btn=(Button)findViewById(R.id.b1);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i1=new Intent(getApplicationContext(),Main2Activity.class);
+                startActivity(i1);
+            }
+        });
+    }
+}
+
+
+
+
+Practical no.11
+Activity to Fragment Communication
+Activity_main.xml file
+XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnred"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="changefragment"
+        android:text="Call Red Fragment" />
+
+    <Button
+        android:id="@+id/btngreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="changefragment"
+        android:text="Call Green Fragment" />
+
+    <fragment
+        android:name="com.example.atof21.RedFragment"
+        android:id="@+id/fragment1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
+
+
+Fragment_red.xml file
+XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".RedFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="This is Red Fragment" />
+
+</FrameLayout>
+
+Fragment_green.xml file
+XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".GreenFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="This is Green Fragment" />
+
+</FrameLayout>
+
+MainActivity.java file
+Java
+
+package com.example.f_to_f_1;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+    Button btnred, btngreen;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void changefragment(View view) {
+        Fragment fg;
+        if (view == findViewById(R.id.btnred)) {
+            fg = new RedFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.fragment1, fg);
+            ft.commit();
+        }
+        if (view == findViewById(R.id.btngreen)) {
+            fg = new GreenFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.fragment1, fg);
+            ft.commit();
+        }
+    }
+}
+
+
+
+
+
+Practical: Fragment to Fragment Communication
+Fragment1.xml
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fragmentcontainer"
+        android:layout_width="370dp"
+        android:layout_height="490dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"/>
+
+</LinearLayout>
+Fragment1.java
+Java
+package com.example.f_to_f_1;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class Fragment1 extends Fragment {
+    Button btn;
+    EditText txt;
+
+    public interface onMessageSendListener {
+        public void onMessageSend(String msg);
+    }
+
+    onMessageSendListener messageSendListener;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.fragment_fragment1, container, false);
+        btn = v.findViewById(R.id.btnsend);
+        txt = v.findViewById(R.id.txtmsg1);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String msg = txt.getText().toString();
+                messageSendListener.onMessageSend(msg);
+            }
+        });
+        return v;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Activity a = (Activity) context;
+        try {
+            messageSendListener = (onMessageSendListener) a;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(a.toString() + " This Class must implement the MessageSendListener");
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        txt.setText("");
+    }
+}
+
+
+Fragment2.xml
+XML
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment2">
+
+    <TextView
+        android:id="@+id/txtmsg1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="This is your Message" />
+
+</FrameLayout>
+
+
+Fragment2.java
+Java
+
+
+package com.example.f_to_f_1;
+
+import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+public class Fragment2 extends Fragment {
+    TextView txt1;
+
+    public Fragment2() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.fragment_fragment2, container, false);
+        txt1 = v.findViewById(R.id.txtmsg1);
+        Bundle b1 = getArguments();
+        String msg1 = b1.getString("Message");
+        txt1.setText(msg1);
+        return v;
+    }
+}
+
+
+MainActivity.java
+package com.example.fol21;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity implements Fragment1.onMessageSendListener
+{
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        if(findViewById(R.id.fragmentcontainer)!=null)
+        {
+            if(savedInstanceState!=null)
+            {
+                return;
+            }
+
+            Fragment1 f1=new Fragment1();
+            getSupportFragmentManager().beginTransaction().add(R.id.fragmentcontainer,f1,null).commit();
+        }
+    }
+
+    @Override
+    public void onMessageSend(String msg)
+    {
+        Fragment f2=new Fragment2();
+        Bundle b=new Bundle();
+        b.putString("Message",msg);
+        f2.setArguments(b);
+
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragmentcontainer,f2,null);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+}
+
+
+
+
+
+Practical: Database Communication (SQLite)
+Activity_main.xml file
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter your Name here" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Enter your Password here" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login" />
+
+    <Button
+        android:id="@+id/drop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Drop" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register" />
+
+</LinearLayout>
+MainActivity.java
+Java
+package com.example.db21;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.*;
+import androidx.appcompat.app.AppCompatActivity;
+
+class MyDB extends SQLiteOpenHelper {
+    MyDB(Context c) {
+        super(c, "logindb", null, 1);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String str = "create table login(username text, password text);";
+        db.execSQL(str);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        String str = "drop table if exists login;";
+        db.execSQL(str);
+        onCreate(db);
+    }
+}
+
+public class MainActivity extends AppCompatActivity {
+    MyDB mdb;
+    EditText eusername, epassword;
+    Button blogin, bdrop, bregister;
+    SQLiteDatabase db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        eusername = (EditText) findViewById(R.id.username);
+        epassword = (EditText) findViewById(R.id.password);
+        blogin = (Button) findViewById(R.id.login);
+        bdrop = (Button) findViewById(R.id.drop);
+        bregister = (Button) findViewById(R.id.register);
+        mdb = new MyDB(this);
+    }
+
+    public void login_fun(View v) {
+        String un = String.valueOf(eusername.getText());
+        String pass = String.valueOf(epassword.getText());
+        db = mdb.getReadableDatabase();
+        String q = "select * from login where username='" + un + "' and password='" + pass + "';";
+        try {
+            Cursor c = db.rawQuery(q, null);
+            if (c.getCount() == 0) {
+                Toast.makeText(this, "Username or Password wrong or User doesn't exists", Toast.LENGTH_LONG).show();
+            } else {
+                while (c.moveToNext()) {
+                    String uname = c.getString(0);
+                    String passw = c.getString(1);
+                    Toast.makeText(this, "Username: " + uname + "\nPassword: " + passw, Toast.LENGTH_LONG).show();
+                    if (un.contentEquals(uname) && pass.contentEquals(passw)) {
+                        Toast.makeText(this, "Welcome User: " + un, Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+            c.close();
+        } catch (Exception sqle) {
+            sqle.printStackTrace();
+        }
+    }
+
+    public void register_fun(View v) {
+        String un = String.valueOf(eusername.getText());
+        String pass = String.valueOf(epassword.getText());
+        db = mdb.getWritableDatabase();
+        String q = "insert into login values('" + un + "','" + pass + "');";
+        db.execSQL(q);
+        Toast.makeText(getApplicationContext(), "User Registered", Toast.LENGTH_SHORT).show();
+    }
+
+    public void drop_fun(View v) {
+        db = mdb.getWritableDatabase();
+        mdb.onUpgrade(db, 1, 2);
+        Toast.makeText(getApplicationContext(), "All User Deleted", Toast.LENGTH_SHORT).show();
+    }
+}
+
+
+
