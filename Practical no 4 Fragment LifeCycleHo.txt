@@ -1,0 +1,108 @@
+Practical no 4 Fragment LifeCycleHow to add fragments:Right click app (Project panel) -> new -> fragment -> blank fragment -> assign name -> uncheck $2^{nd}$ (Factory method) & $3^{rd}$ (callback) checkbox -> finishFragment.java:Java
+
+
+package com.example.activitylc;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class BlankFragmentLC40 extends Fragment {
+    String tag = "lifecycle";
+
+    public BlankFragmentLC40() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        Log.d(tag, "This is onCreateView method");
+        return inflater.inflate(R.layout.fragment_blank_fragment_lc40, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(tag, "This is onStart method");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(tag, "This is onResume method");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(tag, "This is onPause method");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(tag, "This is onStop method");
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.d(tag, "This is onAttach method");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.d(tag, "This is onDetach method");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(tag, "This is onDestroy method");
+    }
+}
+Fragment.xmlXML<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink"
+    tools:context=".BlankFragmentLC40">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
+        android:text="@string/hello_blank_fragment" />
+
+</FrameLayout>
+Activity.xmlXML<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+    <fragment
+        android:id="@+id/f1"
+        class="com.example.activitylc.BlankFragmentLC40"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_blank_fragment_lc40"
+        />
+
+</LinearLayout>
